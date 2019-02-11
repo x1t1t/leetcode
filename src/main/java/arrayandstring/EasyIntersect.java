@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * Intersection of Two Arrays II
+ * <p>
  * 给定两个数组，编写一个函数来计算它们的交集。
  */
 public class EasyIntersect {
