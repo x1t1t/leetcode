@@ -1,45 +1,45 @@
 package arrayandstring;
 
+import java.util.Arrays;
+
 /**
- * 给定一个 n × n 的二维矩阵表示一个图像。
- * 将图像顺时针旋转 90 度。
+ * Rotate Array
  * <p>
- * 说明：
- * 你必须在原地旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要使用另一个矩阵来旋转图像。
+ * 给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
  */
 public class EasyRotate {
     public static void main(String[] args) {
-        int[][] matrix = {
-                {5, 1, 9, 11},
-                {2, 4, 8, 10},
-                {13, 3, 6, 7},
-                {15, 14, 12, 16}
-        };
-
-        rotate(matrix);
-        for (
-                int i = 0;
-                i < matrix.length; i++)
-
-        {
-            System.out.println();
-            for (int j = 0; j < matrix.length; j++) {
-                System.out.print(matrix[i][j] + ",");
-            }
-        }
-
+        int[] nums = {1, 2, 3, 4, 5, 6};
+        rotate1(nums, 1);
+        System.out.println(Arrays.toString(nums));
     }
 
-    public static void rotate(int[][] matrix) {
-        int len = matrix.length, l = len - 1;
-        for (int i = 0; i < len / 2; i++) {
-            for (int j = i; j < len - i - 1; j++) {
-                int temp = matrix[i][j];
-                matrix[i][j] = matrix[l - j][i];
-                matrix[l - j][i] = matrix[l - i][l - j];
-                matrix[l - i][l - j] = matrix[j][l - i];
-                matrix[j][l - i] = temp;
-            }
+    private static void rotate(int[] nums, int k) {
+        if (k == 0) {
+            return;
+        }
+        int t = nums[nums.length - 1];
+        for (int i = nums.length - 1; i > 0; i--) {
+            nums[i] = nums[i - 1];
+        }
+        nums[0] = t;
+        rotate(nums, --k);
+    }
+
+    private static void rotate1(int[] nums, int k) {
+        k = k % nums.length;
+        reverse(nums, nums.length - k, nums.length - 1);
+        reverse(nums, 0, nums.length - k - 1);
+        reverse(nums, 0, nums.length - 1);
+    }
+
+    private static void reverse(int[] nums, int s, int e) {
+        while (s < e) {
+            int t = nums[e];
+            nums[e] = nums[s];
+            nums[s] = t;
+            s++;
+            e--;
         }
     }
 }
