@@ -1,9 +1,11 @@
 package linklist;
 
 /**
+ * Remove Nth Node From End of List
+ * <p>
  * 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
  */
-public class RemoveNthFromEnd {
+public class EasyRemoveNthFromEnd {
     public static void main(String[] args) {
         ListNode head = ListNode.create(1, 2, 3, 4, 5);
         ListNode node = removeNthFromEnd(head, 1);
