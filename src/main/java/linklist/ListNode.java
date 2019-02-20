@@ -18,4 +18,16 @@ public class ListNode {
         }
         return head.next.next;
     }
+
+    public static String printListNode(ListNode node) {
+        StringBuilder out = new StringBuilder();
+        while (node != null) {
+            out.append(node.val);
+            node = node.next;
+            if (node != null) {
+                out.append(" -> ");
+            }
+        }
+        return out.toString();
+    }
 }
