@@ -2,6 +2,7 @@ package tree;
 
 import java.util.*;
 import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class TreeNode {
     int val;
@@ -26,7 +27,7 @@ public class TreeNode {
     public static TreeNode createTree(Integer... elements) {
         if (elements.length <= 0 || elements[0] == null)
             return null;
-        Queue<TreeNode> queue = new LinkedBlockingDeque<>();
+        Queue<TreeNode> queue = new LinkedBlockingQueue<>();
         int i = 0;
         TreeNode treeNode = new TreeNode(elements[i]);
         queue.offer(treeNode);
