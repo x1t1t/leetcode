@@ -47,4 +47,25 @@ public class TreeNode {
         }
         return treeNode;
     }
+
+    public static String printTreeNode(TreeNode node) {
+        List<String> list = new ArrayList();
+        if (node == null) return "";
+        Queue<TreeNode> queue = new LinkedList();
+        queue.offer(node);
+        while (!queue.isEmpty()) {
+            if (queue.peek() == null) {
+                list.add(null);
+                queue.poll();
+            } else {
+                TreeNode node1 = queue.poll();
+                list.add(String.valueOf(node1.val));
+                if (node1.left != null || node1.right != null) {
+                    queue.offer(node1.left);
+                    queue.offer(node1.right);
+                }
+            }
+        }
+        return list.get(list.size() - 1) == null ? list.subList(0, list.size() - 1).toString() : list.toString();
+    }
 }
