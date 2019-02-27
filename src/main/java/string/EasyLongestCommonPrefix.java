@@ -1,4 +1,4 @@
-package arrayandstring;
+package string;
 
 /**
  * Longest Common Prefix
