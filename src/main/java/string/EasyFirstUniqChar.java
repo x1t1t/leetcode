@@ -1,8 +1,4 @@
-package arrayandstring;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
+package string;
 
 /**
  * First Unique Character in a String

@@ -1,4 +1,4 @@
-package arrayandstring;
+package string;
 
 /**
  * Count and Say

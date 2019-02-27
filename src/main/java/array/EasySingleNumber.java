@@ -1,4 +1,4 @@
-package arrayandstring;
+package array;
 
 /**
  * Single Number

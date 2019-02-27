@@ -1,4 +1,4 @@
-package arrayandstring;
+package array;
 
 /**
  * Best Time to Buy and Sell Stock II
