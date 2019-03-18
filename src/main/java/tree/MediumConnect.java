@@ -33,6 +33,7 @@ public class MediumConnect {
     }
 
     public Node connect(Node root) {
+        /**ideaI
         Queue<Node> queue = new LinkedList<>();
         if (root != null) queue.offer(root);
         while (!queue.isEmpty()) {
@@ -44,6 +45,20 @@ public class MediumConnect {
                 if (node.right != null) queue1.offer(node.right);
             }
             queue = queue1;
+        }
+        return root;*/
+
+        /**ideaII*/
+        if (root == null) return null;
+        Node node = root;
+        while (node != null) {
+            Node cur = node;
+            while (cur != null) {
+                if (cur.left != null) cur.left.next = cur.right;
+                if (cur.right != null && cur.next != null) cur.right.next = cur.next.left;
+                cur = cur.next;
+            }
+            node = node.left;
         }
         return root;
     }
