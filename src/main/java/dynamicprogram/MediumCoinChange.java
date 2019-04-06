@@ -17,22 +17,23 @@ public class MediumCoinChange {
 
     public static int coinChange(int[] coins, int amount) {
         if (coins.length < 1) return -1;
-        int[] record = new int[amount];
-        Arrays.sort(coins);
-        return coin(coins, amount, record);
-        /** 超时
-         int[] record = new int[amount + 1];
-         for (int n : coins) {
-         if (n <= amount) {
-         record[n] = 1;
-         }
-         }
-         for (int i = 0; i < amount + 1; i++) {
-         coin(coins, i, record);
-         }
-         return record[amount] == 0 ? -1 : record[amount];
-         */
+        int[] record = new int[amount + 1];
+        /**ideaI*/
+//        return coin(coins, amount, record);
 
+        /**ideaII*/
+        int sum = 0;
+        while (++sum <= amount) {
+            int min = -1;
+            for (int coin : coins) {
+                if (sum >= coin && record[sum - coin] != -1) {
+                    int temp = 1 + record[sum - coin];
+                    min = min < 0 ? temp : Math.min(temp, min);
+                }
+            }
+            record[sum] = min;
+        }
+        return record[amount];
     }
 
     private static int coin(int[] coins, int amount, int[] record) {
