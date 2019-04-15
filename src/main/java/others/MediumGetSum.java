@@ -1,4 +1,4 @@
-package math;
+package others;
 
 /**
  * Sum of Two Integers
