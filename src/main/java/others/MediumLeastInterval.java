@@ -49,7 +49,15 @@ public class MediumLeastInterval {
 
         return tasks.length + idles;*/
 
-        /**ideaIII*/
+        /**ideaIII
+         * 25-i是指出现最多次数的字母的个数count，因为相隔n，意味着最少要占(count-1)*(n+1)的个数MinCount
+         * 剩余的出现次数都小于count，若count>n,那总能排出相隔n位的结果，所耗时间是任务个数*单位时间
+         * 若count<=n,排出顺序中总有坑位填入次数小于count的任务，
+         * 若剩余字母<=坑位,返回最少占的位数MinCount,
+         * 若大于坑位，即任务总数大于MinCount,因为有坑位存在，剩余任务出现次数总是<=坑位的，无论怎么排都能在不增加坑位的情况下完成任务，即返回任务个数*单位时间
+         * 例 AAAABBBBCCCDDDEEE 3
+         * 1:ABXXABXXABXXAB  2:ABCDABDEABCEABCDE
+         * */
         int[] c = new int[26];
         for(char t : tasks){
             c[t - 'A']++;
