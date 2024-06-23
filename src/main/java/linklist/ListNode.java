@@ -8,6 +8,8 @@ public class ListNode {
         val = x;
     }
 
+    ListNode() {};
+
     public static ListNode create(int... elements) {
         ListNode head = new ListNode(0);
         ListNode node = new ListNode(0);
